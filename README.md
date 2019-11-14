@@ -13,4 +13,4 @@ VS2019 + Winform + .NET Framework 4
 ```
 
 # 各版本产物下载地址
-[FileComparisonTool_v1.0.0.0](https://github.com/LiuChenShare/FileComparisonTool/releases/download/v1.0.0.0/FileComparisonTool_v1.0.0.0.zip)  
+[PreviewDemo_v1.0.0.0.zip](https://github.com/LiuChenShare/hikvisionPreviewDemo/releases/download/v1.0.0.0/PreviewDemo_v1.0.0.0.zip)  
