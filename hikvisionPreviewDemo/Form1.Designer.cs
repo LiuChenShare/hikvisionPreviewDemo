@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnRecord = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnPreview = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -45,10 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnPreview = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.btnRecord = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -61,10 +61,47 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.btnPreview);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 539);
+            this.panel1.Location = new System.Drawing.Point(0, 545);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(573, 103);
+            this.panel1.Size = new System.Drawing.Size(573, 97);
             this.panel1.TabIndex = 0;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(127, 23);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 12);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "客户端录像";
+            // 
+            // btnRecord
+            // 
+            this.btnRecord.Location = new System.Drawing.Point(126, 44);
+            this.btnRecord.Name = "btnRecord";
+            this.btnRecord.Size = new System.Drawing.Size(100, 34);
+            this.btnRecord.TabIndex = 23;
+            this.btnRecord.Text = "Start Record";
+            this.btnRecord.UseVisualStyleBackColor = true;
+            this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(17, 23);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "预览";
+            // 
+            // btnPreview
+            // 
+            this.btnPreview.Location = new System.Drawing.Point(16, 44);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(76, 34);
+            this.btnPreview.TabIndex = 14;
+            this.btnPreview.Text = "Live View";
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
             // pictureBox1
             // 
@@ -72,7 +109,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 95);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(573, 444);
+            this.pictureBox1.Size = new System.Drawing.Size(573, 450);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -151,7 +188,7 @@
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(112, 21);
             this.textBoxPassword.TabIndex = 23;
-            this.textBoxPassword.Text = "abcd1234";
+            this.textBoxPassword.Text = "iflytek!";
             // 
             // textBoxUserName
             // 
@@ -175,7 +212,7 @@
             this.textBoxIP.Name = "textBoxIP";
             this.textBoxIP.Size = new System.Drawing.Size(114, 21);
             this.textBoxIP.TabIndex = 20;
-            this.textBoxIP.Text = "10.18.37.120";
+            this.textBoxIP.Text = "10.5.23.234";
             // 
             // btnLogin
             // 
@@ -184,6 +221,7 @@
             this.btnLogin.Size = new System.Drawing.Size(78, 50);
             this.btnLogin.TabIndex = 19;
             this.btnLogin.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label1
             // 
@@ -217,41 +255,6 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "Device Port";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 36);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 12);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "预览";
-            // 
-            // btnPreview
-            // 
-            this.btnPreview.Location = new System.Drawing.Point(16, 57);
-            this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(76, 34);
-            this.btnPreview.TabIndex = 14;
-            this.btnPreview.Text = "Live View";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(127, 36);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 12);
-            this.label14.TabIndex = 24;
-            this.label14.Text = "客户端录像";
-            // 
-            // btnRecord
-            // 
-            this.btnRecord.Location = new System.Drawing.Point(126, 57);
-            this.btnRecord.Name = "btnRecord";
-            this.btnRecord.Size = new System.Drawing.Size(100, 34);
-            this.btnRecord.TabIndex = 23;
-            this.btnRecord.Text = "Start Record";
-            this.btnRecord.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -261,7 +264,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "海康威视录像对接demo";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
