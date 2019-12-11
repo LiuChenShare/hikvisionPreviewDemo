@@ -11,6 +11,7 @@ namespace 审讯主机控制器
 {
     public partial class Form1 : Form
     {
+        private bool m_bInitSDK = false;
         /// <summary>
         /// 登录的摄像头
         /// </summary>
@@ -24,7 +25,18 @@ namespace 审讯主机控制器
 
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            m_bInitSDK = CHCNetSDK.NET_DVR_Init();
+            if (m_bInitSDK == false)
+            {
+                MessageBox.Show("NET_DVR_Init error!");
+                return;
+            }
+            else
+            {
+                //保存SDK日志 To save the SDK log
+                CHCNetSDK.NET_DVR_SetLogToFile(3, "C:\\SdkLog\\", true);
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -115,6 +127,23 @@ namespace 审讯主机控制器
                 button1.Text = "开始";
                 Recording = false;
             }
+        }
+
+
+        private void XXX()
+        {
+            System.Collections.Hashtable ht = new System.Collections.Hashtable();
+            //添加一个keyvalue键值对
+            ht.Add("key", "value");
+
+            //移除某个keyvalue键值对
+            ht.Remove("key");
+
+            //移除所有元素
+            ht.Clear();
+
+            //判断是否包含特定键key
+            ht.Contains("key");
         }
     }
 }
