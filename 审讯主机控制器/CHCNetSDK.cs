@@ -15419,5 +15419,49 @@ namespace 审讯主机控制器
 
         [DllImportAttribute(@"DLL\HCNetSDK.dll")]
         public static extern int NET_DVR_FindDVRLog_Matrix(int iUserID, int lSelectMode, uint dwMajorType, uint dwMinorType, ref tagVEDIOPLATLOG lpVedioPlatLog, ref NET_DVR_TIME lpStartTime, ref NET_DVR_TIME lpStopTime);
+
+        #region 刻录控制和状态获取
+
+        /// <summary>
+        /// 审讯中开始刻录
+        /// </summary>
+        /// <param name="lUserID">NET_DVR_Login_V40等登录接口的返回值</param>
+        /// <param name="lpInquestRoom">审讯室信息</param>
+        /// <param name="bNotBurn">是否不刻录：0- 录像并刻录，1- 只录像不刻录</param>
+        /// <returns></returns>
+        [DllImport(@"DLL\HCNetSDK.dll")]
+        public static extern bool NET_DVR_InquestStartCDW_V30(int lUserID, NET_DVR_INQUEST_ROOM lpInquestRoom, bool bNotBurn);
+
+        /// <summary>
+        /// 审讯中停止刻录
+        /// </summary>
+        /// <param name="lUserID">NET_DVR_Login_V40等登录接口的返回值</param>
+        /// <param name="lpInquestRoom">审讯室信息</param>
+        /// <param name="bCancelWrite">正常的情况在结束后会对光盘封盘；代表庭审暂停，这样设备不会对光盘进行封盘。TRUE-不封盘；FALSE-封盘</param>
+        /// <returns></returns>
+        [DllImport(@"DLL\HCNetSDK.dll")]
+        public static extern bool NET_DVR_InquestStopCDW_V30(int lUserID, NET_DVR_INQUEST_ROOM lpInquestRoom, bool bCancelWrite);
+
+
+
+        /// <summary>
+        /// 审讯中开始刻录
+        /// </summary>
+        /// <param name="lUserID">NET_DVR_Login_V40等登录接口的返回值</param>
+        /// <param name="bPause">是否暂停(暂未使用, 保留)</param>
+        /// <returns></returns>
+        [DllImport(@"DLL\HCNetSDK.dll")]
+        public static extern bool NET_DVR_InquestStartCDW(int lUserID, bool bPause);
+
+        /// <summary>
+        /// 审讯中停止刻录
+        /// </summary>
+        /// <param name="lUserID">NET_DVR_Login_V40等登录接口的返回值</param>
+        /// <param name="bCancelWrite">正常的情况在结束后会对光盘封盘；代表庭审暂停，这样设备不会对光盘进行封盘。TRUE-不封盘；FALSE-封盘</param>
+        /// <returns></returns>
+        [DllImport(@"DLL\HCNetSDK.dll")]
+        public static extern bool NET_DVR_InquestStopCDW(int lUserID, bool bCancelWrite);
+
+        #endregion
     }
 }

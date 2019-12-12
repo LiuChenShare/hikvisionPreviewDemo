@@ -37,6 +37,10 @@ namespace 审讯主机控制器
                 //保存SDK日志 To save the SDK log
                 CHCNetSDK.NET_DVR_SetLogToFile(3, "C:\\SdkLog\\", true);
             }
+
+            //功能开启控制
+            button1.Enabled = false;//关闭手动录像功能
+            button2.Enabled = true;//刻录控制功能
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -144,6 +148,40 @@ namespace 审讯主机控制器
 
             //判断是否包含特定键key
             ht.Contains("key");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (m_lUserID < 0)
+            {
+                MessageBox.Show("请先登录设备");
+                return;
+            }
+
+            if (!Recording)
+            {
+                if (!CHCNetSDK.NET_DVR_InquestStartCDW(m_lUserID, false))
+                {
+                    var iLastErr = CHCNetSDK.NET_DVR_GetLastError();
+                    var str = "开始刻录异常, error code= " + iLastErr;
+                    MessageBox.Show(str);
+                    return;
+                }
+                button1.Text = "停止刻录";
+                Recording = true;
+            }
+            else
+            {
+                if (!CHCNetSDK.NET_DVR_InquestStopCDW(m_lUserID, false))
+                {
+                    var iLastErr = CHCNetSDK.NET_DVR_GetLastError();
+                    var str = "停止刻录异常, error code= " + iLastErr;
+                    MessageBox.Show(str);
+                    return;
+                }
+                button1.Text = "开始刻录";
+                Recording = false;
+            }
         }
     }
 }
